@@ -1,0 +1,46 @@
+.custom-height {
+  height: 40px;
+}
+
+.blue-circle {
+  width: 30px;
+  height: 30px;
+  background-color: lightblue;
+  border-radius: 50%;
+}
+
+.min-width-400 {
+  min-width: 400px;
+}
+
+.font-size-14 {
+  font-size: 14px;
+}
+
+.custom-height-50 {
+  height: 50px;
+}
+
+.text-gray {
+  color: gray;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.min-width-50 {
+  min-width: 50px;
+}
+
+.font-size-11 {
+  font-size: 11px;
+}
+
+.logo {
+  color: green;
+}

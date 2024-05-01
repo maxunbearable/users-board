@@ -1,0 +1,74 @@
+<div class="border d-flex align-items-center custom-height">
+  <span class="p-5 d-flex">
+    <div class="blue-circle mx-2"></div>
+    <span class="logo">NICE LOGO</span>
+  </span>
+</div>
+
+<div class="p-4 min-width-400">
+  <h2>In service</h2>
+  <div class="p-3 border shadow rounded font-size-14">
+    <div class="border-bottom d-flex justify-content-between font-weight-bold">
+      <span class="p-2 bold">Number in line</span>
+      <span class="p-2 bold">Full Name</span>
+      <span class="p-2 bold">Check-in time</span>
+    </div>
+    <div
+      *ngIf="activeUser$ | async as activeUser"
+      class="border-bottom d-flex justify-content-between"
+    >
+      <span class="min-width-50 p-2">{{ activeUser.id }}</span>
+      <span class="min-width-50 p-2">{{ activeUser.FullName }}</span>
+      <span class="min-width-50 p-2">{{
+        activeUser.dateTime | date : 'HH:mm:ss'
+      }}</span>
+    </div>
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-success m-2" (click)="onNextClick()">
+        Next client
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="p-4 min-width-400">
+  <h2>Clients in line</h2>
+  <div class="p-3 border-bottom shadow rounded font-size-14">
+    <div class="d-flex justify-content-between custom-height-50">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Full Name"
+        [(ngModel)]="userNameInput"
+      />
+      <button
+        [class.disabled]="!userNameInput"
+        class="btn btn-success m-1 font-size-11"
+        (click)="onAddClick()"
+      >
+        +Add to the line
+      </button>
+    </div>
+    <span class="font-size-11 text-gray"
+      >Name of the client you're going to add in the line</span
+    >
+  </div>
+
+  <div class="p-3 border shadow rounded margin-top-20 font-size-14">
+    <div class="border-bottom d-flex justify-content-between font-weight-bold">
+      <span class="p-2 bold">Number in line</span>
+      <span class="p-2 bold">Full Name</span>
+      <span class="p-2 bold">Check-in time</span>
+    </div>
+    <div
+      *ngFor="let userInLine of usersInLine$ | async"
+      class="border-bottom d-flex justify-content-between"
+    >
+      <span class="min-width-50 p-2">{{ userInLine.id }}</span>
+      <span class="min-width-50 p-2">{{ userInLine.FullName }}</span>
+      <span class="min-width-50 p-2">{{
+        userInLine.dateTime | date : 'HH:mm:ss'
+      }}</span>
+    </div>
+  </div>
+</div>
